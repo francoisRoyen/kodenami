@@ -1,6 +1,6 @@
 {
 	"name": "kodenami",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Kodenami - A Konami Code plugin",
 	"main": "./src/Kodenami.ts",
 	"scripts": {
