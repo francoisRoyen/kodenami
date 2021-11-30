@@ -1,0 +1,27 @@
+{
+	"name": "kodenami",
+	"version": "0.0.0",
+	"description": "Kodenami - A Konami Code plugin",
+	"main": "./src/Kodenami.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/francoisRoyen/konami.git"
+	},
+	"keywords": [
+		"konami",
+		"code",
+		"cheat",
+		"typescript",
+		"ts",
+		"plugin"
+	],
+	"author": "François Royen",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/francoisRoyen/konami/issues"
+	},
+	"homepage": "https://github.com/francoisRoyen/konami#readme"
+}

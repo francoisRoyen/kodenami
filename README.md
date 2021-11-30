@@ -1,4 +1,4 @@
-# Konami
+# Kodenami - A Konami Code plugin
 
 ## Introduction
 
@@ -6,6 +6,18 @@ The Konami Code, also commonly referred to as the Contra Code and sometimes the 
 
 In the original code, the player can press the following sequence of buttons on the game controller to enable a cheat or other effects :
 
-![Konami](./konami-code.svg)
+![Konami Code](./konami-code.svg)
 
-## Use
+## Installation
+
+```
+npm i kodenami
+```
+
+## Usage
+
+```
+const kodenami = new Kodenami('Some random message.');
+
+kodenami.init() // Kodenami : Some random message.
+```
