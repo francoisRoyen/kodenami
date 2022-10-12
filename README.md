@@ -1,4 +1,4 @@
-# Kodenami - A Konami Code plugin
+# 🕹 Kodenami - A Konami Code plugin
 
 ## Introduction
 
