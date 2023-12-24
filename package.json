@@ -1,27 +1,41 @@
 {
-	"name": "kodenami",
-	"version": "1.0.0",
-	"description": "Kodenami - A Konami Code plugin",
-	"main": "./src/Kodenami.ts",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/francoisRoyen/konami.git"
-	},
-	"keywords": [
-		"konami",
-		"code",
-		"cheat",
-		"typescript",
-		"ts",
-		"plugin"
-	],
-	"author": "François Royen",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/francoisRoyen/konami/issues"
-	},
-	"homepage": "https://github.com/francoisRoyen/konami#readme"
+  "name": "kodenami",
+  "version": "2.0.0",
+  "description": "Kodenami - A Konami Code plugin",
+  "homepage": "https://github.com/francoisRoyen/konami#readme",
+  "main": "./src/Kodenami.js",
+  "files": [
+    "./src/Kodenami.js"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francoisRoyen/konami.git"
+  },
+  "keywords": [
+    "cheat",
+    "code",
+    "easter-egg",
+    "javascript",
+    "js",
+    "konami",
+    "module",
+    "plugin"
+  ],
+  "author": {
+    "name": "François Royen",
+    "email": "hello@francois-royen.com",
+    "url": "https://francois-royen.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/francoisRoyen/konami/issues"
+  },
+  "devDependencies": {
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
+  }
 }
