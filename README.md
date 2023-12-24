@@ -47,7 +47,7 @@ yarn add kodenami
 
 ```js
 // import it
-import Kodenami from './src/Kodenami.js';
+import Kodenami from 'Kodenami';
 
 // create a callback function
 function callback() {
