@@ -1,6 +1,6 @@
 {
   "name": "kodenami",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Kodenami - A Konami Code plugin",
   "homepage": "https://github.com/francoisRoyen/konami#readme",
   "main": "./src/Kodenami.js",
