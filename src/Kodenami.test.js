@@ -20,7 +20,7 @@ describe('should work', () => {
       'ArrowRight',
       'KeyB',
       'KeyA',
-    ].forEach((string) => kodenami.use(string));
+    ].forEach(string => kodenami.use(string));
 
     expect(isActivated).toBe(true);
   });
@@ -95,7 +95,7 @@ describe('should not work', () => {
       'ArrowDown',
       'ArrowLeft',
       'ArrowRight',
-    ].forEach((string) => kodenami.use(string));
+    ].forEach(string => kodenami.use(string));
 
     expect(isActivated).toBe(false);
   });
@@ -118,7 +118,7 @@ describe('should not work', () => {
       'ArrowRight',
       'KeyB',
       'KeyC',
-    ].forEach((string) => kodenami.use(string));
+    ].forEach(string => kodenami.use(string));
 
     expect(isActivated).toBe(false);
   });
