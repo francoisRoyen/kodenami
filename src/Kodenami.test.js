@@ -1,143 +1,191 @@
-import { expect, test } from 'vitest';
-
+import { describe, expect, test } from 'vitest';
 import Kodenami from './Kodenami.js';
 
-/**
- * Setup
- */
+describe('should work', () => {
+  test('with the original sequence', () => {
+    let isActivated = false;
 
-let isActivated = false;
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
 
-function callback() {
-  isActivated = true;
-}
+    [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowRight',
+      'KeyB',
+      'KeyA',
+    ].forEach((string) => kodenami.use(string));
 
-const kodenami = new Kodenami(callback);
+    expect(isActivated).toBe(true);
+  });
 
-/**
- * Test
- */
+  test('with a new sequence', () => {
+    let isActivated = false;
 
-// instantiation
+    const kodenami = new Kodenami(
+      () => {
+        isActivated = true;
+      },
+      {
+        code: ['ArrowUp', 'ArrowDown'],
+      }
+    );
 
-test('if instantiated without a callback function throw an error', () => {
-  expect(() => new Kodenami()).toThrowError();
+    kodenami.use('ArrowUp');
+    kodenami.use('ArrowDown');
+
+    expect(isActivated).toBe(true);
+  });
+
+  test('with a single value sequence', () => {
+    let isActivated = false;
+
+    const kodenami = new Kodenami(
+      () => {
+        isActivated = true;
+      },
+      {
+        code: ['ArrowUp'],
+      }
+    );
+
+    kodenami.use('ArrowUp');
+
+    expect(isActivated).toBe(true);
+  });
+
+  test('with an invalid sequence followed by a valid sequence', () => {
+    let isActivated = false;
+
+    const kodenami = new Kodenami(
+      () => {
+        isActivated = true;
+      },
+      {
+        code: ['ArrowUp', 'ArrowDown'],
+      }
+    );
+
+    kodenami.use('ArrowUp');
+    kodenami.use('ArrowUp');
+    kodenami.use('ArrowDown');
+
+    expect(isActivated).toBe(true);
+  });
 });
 
-test('if instantiate with an invalid "callback" parameter throw an error', () => {
-  expect(() => new Kodenami('cb')).toThrowError();
+describe('should not work', () => {
+  test('with a sequence that is too short', () => {
+    let isActivated = false;
+
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
+
+    [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+    ].forEach((string) => kodenami.use(string));
+
+    expect(isActivated).toBe(false);
+  });
+
+  test('with an invalid sequence', () => {
+    let isActivated = false;
+
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
+
+    [
+      'ArrowUp',
+      'ArrowUp',
+      'ArrowDown',
+      'ArrowDown',
+      'ArrowLeft',
+      'ArrowRight',
+      'ArrowLeft',
+      'ArrowRight',
+      'KeyB',
+      'KeyC',
+    ].forEach((string) => kodenami.use(string));
+
+    expect(isActivated).toBe(false);
+  });
 });
 
-test('if instantiate with an invalid "code" parameter throw an error', () => {
-  const options = {};
-  options.code = 'an invalid parameter';
-  expect(() => new Kodenami(callback, options)).toThrowError();
-});
+describe('should throw an error when', () => {
+  test('instanciated without a "callback" function', () => {
+    expect(() => new Kodenami()).toThrowError();
+  });
 
-test('if instantiate with an invalid "once" parameter throw an error', () => {
-  const options = {};
-  options.once = 'an invalid parameter';
-  expect(() => new Kodenami(callback, options)).toThrowError();
-});
+  test('instanciated with an invalid "callback" function', () => {
+    expect(() => new Kodenami('cb')).toThrowError();
+  });
 
-// passing parameters afterward
+  test('instanciated with an invalid "code" parameter', () => {
+    expect(() => {
+      new Kodenami(
+        () => {
+          isActivated = true;
+        },
+        {
+          code: 'an invalid parameter',
+        }
+      );
+    }).toThrowError();
+  });
 
-test('if passing an invalid "callback" parameter afterwards throw an error', () => {
-  const kodenami = new Kodenami(callback);
+  test('instanciated with an invalid "once" parameter', () => {
+    expect(() => {
+      new Kodenami(
+        () => {
+          isActivated = true;
+        },
+        {
+          once: 'an invalid parameter',
+        }
+      );
+    }).toThrowError();
+  });
 
-  expect(() => {
-    kodenami.callback = 'invalid "callback" parameter';
-  }).toThrowError();
-});
+  test('passing an invalid "callback" function afterward', () => {
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
 
-test('if passing an invalid "code" parameter afterwards throw an error', () => {
-  const kodenami = new Kodenami(callback);
+    expect(() => {
+      kodenami.callback = 'invalid "callback" parameter';
+    }).toThrowError();
+  });
 
-  expect(() => {
-    kodenami.code = 'invalid "code" parameter';
-  }).toThrowError();
-});
+  test('passing an invalid "code" parameter afterward', () => {
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
 
-test('if passing an invalid "once" parameter afterwards throw an error', () => {
-  const kodenami = new Kodenami(callback);
+    expect(() => {
+      kodenami.code = 'invalid "code" parameter';
+    }).toThrowError();
+  });
 
-  expect(() => {
-    kodenami.once = 'invalid "once" parameter';
-  }).toThrowError();
-});
+  test('passing an invalid "once" parameter afterward', () => {
+    const kodenami = new Kodenami(() => {
+      isActivated = true;
+    });
 
-// if it works
-
-test('if the original sequence works', () => {
-  [
-    'ArrowUp',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrowDown',
-    'ArrowLeft',
-    'ArrowRight',
-    'ArrowLeft',
-    'ArrowRight',
-    'KeyB',
-    'KeyA',
-  ].forEach((string) => kodenami.use(string));
-
-  expect(isActivated).toBe(true);
-});
-
-test('if a new sequence works', () => {
-  kodenami.code = ['ArrowUp', 'ArrowDown'];
-
-  kodenami.use('ArrowUp');
-  kodenami.use('ArrowDown');
-
-  expect(isActivated).toBe(true);
-});
-
-test('if a sequence with a single value works', () => {
-  kodenami.code = ['ArrowUp'];
-
-  kodenami.use('ArrowUp');
-
-  expect(isActivated).toBe(true);
-});
-
-test('if a sequence that is too short does not work', () => {
-  [
-    'ArrowUp',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrowDown',
-    'ArrowLeft',
-    'ArrowRight',
-  ].forEach((string) => kodenami.use(string));
-
-  expect(isActivated).toBe(false);
-});
-
-test('if an invalid sequence does not work', () => {
-  [
-    'ArrowUp',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrowDown',
-    'ArrowLeft',
-    'ArrowRight',
-    'ArrowLeft',
-    'ArrowRight',
-    'KeyB',
-    'KeyC',
-  ].forEach((string) => kodenami.use(string));
-
-  expect(isActivated).toBe(false);
-});
-
-test('if an invalid sequence followed by a valid sequence works', () => {
-  kodenami.code = ['ArrowUp', 'ArrowDown'];
-
-  kodenami.use('ArrowUp');
-  kodenami.use('ArrowUp');
-  kodenami.use('ArrowDown');
-
-  expect(isActivated).toBe(true);
+    expect(() => {
+      kodenami.once = 'invalid "once" parameter';
+    }).toThrowError();
+  });
 });

@@ -29,9 +29,7 @@ class Kodenami {
     this.index = 0;
   }
 
-  /**
-   * Getters
-   */
+  /*************************** Getters ***************************/
 
   get callback() {
     return this._callback;
@@ -45,9 +43,7 @@ class Kodenami {
     return this._once;
   }
 
-  /**
-   * Setters
-   */
+  /*************************** Setters ***************************/
 
   set callback(fn) {
     if (typeof fn !== 'function') {
@@ -73,9 +69,7 @@ class Kodenami {
     this._once = bool;
   }
 
-  /**
-   * Methods
-   */
+  /*************************** Methods ***************************/
 
   use(val) {
     if (this.isOff) {

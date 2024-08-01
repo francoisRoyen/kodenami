@@ -7,6 +7,11 @@
   "files": [
     "./src/Kodenami.js"
   ],
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-emoji"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "test": "vitest"
@@ -35,6 +40,8 @@
     "url": "https://github.com/francoisRoyen/konami/issues"
   },
   "devDependencies": {
+    "commitizen": "4.3.0",
+    "cz-emoji": "1.3.2-canary.2",
     "vite": "^5.0.10",
     "vitest": "^1.1.0"
   }
