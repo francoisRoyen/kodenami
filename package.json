@@ -42,7 +42,7 @@
   "devDependencies": {
     "commitizen": "4.3.0",
     "cz-emoji": "1.3.2-canary.2",
-    "vite": "^5.0.10",
+    "vite": "5.3.5",
     "vitest": "^1.1.0"
   }
 }
