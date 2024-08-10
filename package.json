@@ -1,25 +1,26 @@
 {
-  "name": "kodenami",
-  "version": "2.0.1",
-  "description": "Kodenami - A Konami Code plugin",
-  "homepage": "https://github.com/francoisRoyen/konami#readme",
-  "main": "./src/Kodenami.js",
-  "files": [
-    "./src/Kodenami.js"
-  ],
+  "author": {
+    "name": "François Royen",
+    "email": "hello@francois-royen.com",
+    "url": "https://francois-royen.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/francoisRoyen/kodenami/issues"
+  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-emoji"
     }
   },
-  "scripts": {
-    "dev": "vite",
-    "test": "vitest"
+  "description": "Kodenami - A Konami Code plugin",
+  "devDependencies": {
+    "@types/node": "22.2.0",
+    "commitizen": "4.3.0",
+    "cz-emoji": "1.3.2-canary.2",
+    "typescript": "5.5.4",
+    "vitest": "2.0.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/francoisRoyen/konami.git"
-  },
+  "homepage": "https://github.com/francoisRoyen/kodenami#readme",
   "keywords": [
     "cheat",
     "code",
@@ -30,19 +31,17 @@
     "module",
     "plugin"
   ],
-  "author": {
-    "name": "François Royen",
-    "email": "hello@francois-royen.com",
-    "url": "https://francois-royen.com/"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/francoisRoyen/konami/issues"
+  "main": "dist/index.js",
+  "name": "kodenami",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francoisRoyen/kodenami.git"
   },
-  "devDependencies": {
-    "commitizen": "4.3.0",
-    "cz-emoji": "1.3.2-canary.2",
-    "vite": "5.3.5",
-    "vitest": "^1.1.0"
-  }
+  "scripts": {
+    "build": "vitest run && tsc",
+    "test": "vitest"
+  },
+  "types": "dist/index.d.ts",
+  "version": "2.0.2"
 }

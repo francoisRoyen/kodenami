@@ -6,6 +6,10 @@ In the original code, the player can press the following sequence of buttons on 
 
 ![Konami Code](konami-code.svg)
 
+## Features
+
+✅ TypeScript support
+
 ## Install
 
 ### NPM
@@ -61,8 +65,8 @@ const kodenami = new Kodenami(callback, {
 });
 
 // call it
-window.addEventListener('keydown', (event) => {
-  kodenami.use(event.code); // 'ArrowUp', ...
+window.addEventListener('keydown', event => {
+  kodenami.use(event.key); // 'ArrowUp', ...
 });
 ```
 

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import Kodenami from './Kodenami.js';
+import Kodenami from './index.js';
 
 describe('should work', () => {
   test('with the original sequence', () => {
@@ -18,8 +18,8 @@ describe('should work', () => {
       'ArrowRight',
       'ArrowLeft',
       'ArrowRight',
-      'KeyB',
-      'KeyA',
+      'b',
+      'a',
     ].forEach(string => kodenami.use(string));
 
     expect(isActivated).toBe(true);
@@ -116,76 +116,10 @@ describe('should not work', () => {
       'ArrowRight',
       'ArrowLeft',
       'ArrowRight',
-      'KeyB',
-      'KeyC',
+      'b',
+      'c',
     ].forEach(string => kodenami.use(string));
 
     expect(isActivated).toBe(false);
-  });
-});
-
-describe('should throw an error when', () => {
-  test('instanciated without a "callback" function', () => {
-    expect(() => new Kodenami()).toThrowError();
-  });
-
-  test('instanciated with an invalid "callback" function', () => {
-    expect(() => new Kodenami('cb')).toThrowError();
-  });
-
-  test('instanciated with an invalid "code" parameter', () => {
-    expect(() => {
-      new Kodenami(
-        () => {
-          isActivated = true;
-        },
-        {
-          code: 'an invalid parameter',
-        }
-      );
-    }).toThrowError();
-  });
-
-  test('instanciated with an invalid "once" parameter', () => {
-    expect(() => {
-      new Kodenami(
-        () => {
-          isActivated = true;
-        },
-        {
-          once: 'an invalid parameter',
-        }
-      );
-    }).toThrowError();
-  });
-
-  test('passing an invalid "callback" function afterward', () => {
-    const kodenami = new Kodenami(() => {
-      isActivated = true;
-    });
-
-    expect(() => {
-      kodenami.callback = 'invalid "callback" parameter';
-    }).toThrowError();
-  });
-
-  test('passing an invalid "code" parameter afterward', () => {
-    const kodenami = new Kodenami(() => {
-      isActivated = true;
-    });
-
-    expect(() => {
-      kodenami.code = 'invalid "code" parameter';
-    }).toThrowError();
-  });
-
-  test('passing an invalid "once" parameter afterward', () => {
-    const kodenami = new Kodenami(() => {
-      isActivated = true;
-    });
-
-    expect(() => {
-      kodenami.once = 'invalid "once" parameter';
-    }).toThrowError();
   });
 });
