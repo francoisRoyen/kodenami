@@ -15,13 +15,13 @@ In the original code, the player can press the following sequence of buttons on 
 ### NPM
 
 ```
-npm i kodenami
+npm i kodenami -D
 ```
 
 ### Yarn
 
 ```
-yarn add kodenami
+yarn add kodenami -D
 ```
 
 ## Usage
