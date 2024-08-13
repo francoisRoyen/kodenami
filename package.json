@@ -1,9 +1,5 @@
 {
-  "author": {
-    "name": "François Royen",
-    "email": "hello@francois-royen.com",
-    "url": "https://francois-royen.com/"
-  },
+  "author": "François Royen <hello@francois-royen.com> (https://francois-royen.com/)",
   "bugs": {
     "url": "https://github.com/francoisRoyen/kodenami/issues"
   },
@@ -20,6 +16,10 @@
     "typescript": "5.5.4",
     "vitest": "2.0.5"
   },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts"
+  ],
   "homepage": "https://github.com/francoisRoyen/kodenami#readme",
   "keywords": [
     "cheat",
