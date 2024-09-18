@@ -20,7 +20,7 @@ const code = [
  * @param { array } options.code - an array of string
  * @param { object } options.once - a boolean
  *
- * @version 2.0.1
+ * @version 2.0.2
  */
 class Kodenami {
     constructor(callback, options = {}) {

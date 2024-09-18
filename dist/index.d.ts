@@ -6,7 +6,7 @@
  * @param { array } options.code - an array of string
  * @param { object } options.once - a boolean
  *
- * @version 2.0.1
+ * @version 2.0.2
  */
 declare class Kodenami {
     callback: () => void;
